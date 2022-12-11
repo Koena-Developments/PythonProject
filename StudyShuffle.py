@@ -1,55 +1,57 @@
 # Create an empty list that will store subjects to be shuffled
+import sys
 from random import choice
 
 
 def add() -> object:
     # declare an empty list
     subjects = []
+    # Create a box full of motivational quotes ;)
+    GuiltBox = ["Oh well, i guess you gonna miss-out on that dream car that you always wanted :(",
+                "Think about your goals", "You are gonna have a family that is gonna depend on you, so invest in "
+                                          "yourself now so that you are earning more than average",
+                "Your wife should earn way less than you",
+                "Which girl would want to confide in someone who is lazy to achieve goals for themselves."]
 
     # prompt user to enter name
-
     name = input("Please enter your name: ").title()
 
     # welcomes user to the program
-
     print(f"Hello {name}, Welcome to study Timetable")
-    # Conditional statement,
-    while True:
-        # new_subjects variable holds prompt for user to enter subjects
 
-        new_subjects = input("please enter your subjects:")
-        # the new_subject variable value is added to the 'subjects' list
+    # Conditional statement
+    while True:
+
+        new_subjects = str(input("please enter your subjects: "))
+
         subjects.append(new_subjects)
 
         print(f"You have entered the following subject: {new_subjects}")
 
-        option = input("Are you done entering your subject: yes or no")
+        option = input("Are you done entering your subject: yes or no: ")
 
         if option == "yes":
             break
         else:
             continue
 
-    # print out the list
     print(subjects)
-    #
-    print(f"hey {name} you are to study: ", choice(subjects), " For 2hrs")
-    return subjects, name, new_subjects
+    # Ask if user would like to study now or later
+
+    OPTION = input("Would you like to study now?").title()
+
+    if OPTION == "Yes":
+        print(f"hey {name} you are to study: ", choice(subjects), " For 2hrs")
+        return subjects, name, new_subjects
+    else:
+        print(choice(GuiltBox))
 
 
-add()
-# first step find out if we can post this project on git-hub and slowly update it online if so then that is our first
-# task
-
-# BUGs
-# just incase the user enter the same subject twice, we need to use sets instead of a list
+def main():
+    add()
 
 
-# New features{urgent features before friday Upcoming features}
-# I want to be able to store the subjects permanently for different people who use this program
-# I want the program to be able to read out the subjects you are to study, for the sake of blind people
-# create a user interface for the project
+main()
 
 
-# Future features
-# I want the program to be able to use machine learning to recommend types of subjects that are tailored for you (user)
+
